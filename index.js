@@ -21,6 +21,9 @@ module.exports = {
 		],
 		'array-callback-return': 'error',
 		'array-element-newline': 'off',
+		'arrow-body-style': ['error', 'as-needed'],
+		'arrow-parens': ['error', 'as-needed', { requireForBlockBody: false }],
+		'arrow-spacing': ['error', { before: true, after: true }],
 		'block-scoped-var': 'error',
 		'block-spacing': ['error', 'always'],
 		'brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -34,6 +37,7 @@ module.exports = {
 		'computed-property-spacing': ['error', 'never'],
 		'consistent-return': ['warn', { treatUndefinedAsUnspecified: false }],
 		'consistent-this': ['error', 'self'],
+		'constructor-super': 'error',
 		curly: ['error', 'multi-line', 'consistent'],
 		'default-case': 'off',
 		'default-case-last': 'warn',
@@ -54,11 +58,12 @@ module.exports = {
 		'func-names': ['warn', 'as-needed'],
 		'func-style': ['warn', 'expression'],
 		'function-paren-newline': ['error', 'consistent'],
+		'generator-star-spacing': ['error', 'before'],
 		'getter-return': 'error',
 		'grouped-accessor-pairs': 'off',
 		'guard-for-in': 'warn',
-		'init-declarations': ['warn', 'always'],
 		indent: ['error', 'tab', { SwitchCase: 1 }],
+		'init-declarations': ['warn', 'always'],
 		'key-spacing': [
 			'error',
 			{
@@ -115,10 +120,12 @@ module.exports = {
 		'no-bitwise': 'off',
 		'no-caller': 'error',
 		'no-case-declarations': 'error',
+		'no-class-assign': 'warn',
 		'no-compare-neg-zero': 'error',
 		'no-cond-assign': 'error',
 		'no-confusing-arrow': 'off',
 		'no-console': 'off',
+		'no-const-assign': 'error',
 		'no-constant-condition': 'warn',
 		'no-constructor-return': 'off',
 		'no-control-regex': 'warn',
@@ -126,9 +133,11 @@ module.exports = {
 		'no-delete-var': 'error',
 		'no-div-regex': 'warn',
 		'no-dupe-args': 'error',
+		'no-dupe-class-members': 'error',
 		'no-dupe-else-if': 'warn',
 		'no-dupe-keys': 'error',
 		'no-duplicate-case': 'warn',
+		'no-duplicate-imports': ['error', { includeExports: false }],
 		'no-else-return': 'error',
 		'no-empty': 'off',
 		'no-empty-character-class': 'error',
@@ -183,8 +192,8 @@ module.exports = {
 		'no-new': 'off',
 		'no-new-func': 'warn',
 		'no-new-object': 'error',
+		'no-new-symbol': 'warn',
 		'no-new-wrappers': 'warn',
-		'nonblock-statement-body-position': ['warn', 'beside'],
 		'no-obj-calls': 'warn',
 		'no-octal': 'error',
 		'no-octal-escape': 'error',
@@ -194,23 +203,25 @@ module.exports = {
 		'no-proto': 'off',
 		'no-prototype-builtins': 'warn',
 		'no-redeclare': 'error',
-		'no-restricted-properties': 'off',
 		'no-regex-spaces': 'warn',
 		'no-restricted-globals': 'off',
-		'no-restricted-syntax': 0,
+		'no-restricted-imports': 'off',
+		'no-restricted-properties': 'off',
+		'no-restricted-syntax': 'off',
 		'no-return-assign': 'off',
 		'no-return-await': 'warn',
 		'no-script-urls': 'off',
 		'no-self-assign': 'error',
 		'no-self-compare': 'warn',
-		'no-setter-return': 'off',
 		'no-sequences': 'error',
+		'no-setter-return': 'off',
 		'no-shadow': 'off',
 		'no-shadow-restricted-names': 'error',
 		'no-sparse-arrays': 'warn',
 		'no-tabs': 'off',
 		'no-template-curly-in-string': 'error',
 		'no-ternary': 'off',
+		'no-this-before-super': 'error',
 		'no-throw-literal': 'error',
 		'no-trailing-spaces': 'error',
 		'no-undef': 'error',
@@ -237,13 +248,18 @@ module.exports = {
 		'no-useless-backreference': 'off',
 		'no-useless-call': 'off',
 		'no-useless-catch': 'off',
+		'no-useless-computed-key': 'error',
 		'no-useless-concat': 'warn',
+		'no-useless-constructor': 'error',
 		'no-useless-escape': 'off',
+		'no-useless-rename': 'error',
 		'no-useless-return': 'warn',
+		'no-var': 'error',
 		'no-void': 'off',
 		'no-warning-comments': 'off',
 		'no-whitespace-before-property': 'error',
 		'no-with': 'error',
+		'nonblock-statement-body-position': ['warn', 'beside'],
 		'object-curly-newline': [
 			'error',
 			{
@@ -265,6 +281,8 @@ module.exports = {
 			}
 		],
 		'padded-blocks': ['error', 'never'],
+		'padding-line-between-statements': 'off',
+		'prefer-arrow-callback': 'error',
 		'prefer-const': ['error', { destructuring: 'all' }],
 		'prefer-destructuring': [
 			'error',
@@ -282,13 +300,58 @@ module.exports = {
 				enforceForRenamedProperties: true
 			}
 		],
+		'prefer-numeric-literals': 'off',
 		'prefer-promise-reject-errors': 'error',
-		'quote-props': ['error', 'as-needed'],
-		quotes: ['error', 'single'],
+		'prefer-rest-params': 'warn',
+		'prefer-spread': 'error',
+		'prefer-template': 'warn',
+		'quote-props': [
+			'error',
+			'as-needed',
+			{
+				keywords: true,
+				unnecessary: true,
+				numbers: false
+			}
+		],
+		quotes: [
+			'error',
+			'single',
+			{
+				avoidEscape: true,
+				allowTemplateLiterals: true
+			}
+		],
 		radix: 'error',
 		'require-atomic-updates': 'warn',
 		'require-await': 'warn',
+		'require-yield': 'warn',
+		'rest-spread-spacing': ['error', 'never'],
 		semi: ['error', 'always', { omitLastInOneLineBlock: false }],
+		'semi-spacing': ['error', { before: false, after: true }],
+		'semi-style': ['error', 'last'],
+		'sort-keys': [
+			'warn',
+			'asc',
+			{
+				caseSensitive: true,
+				minKeys: 10,
+				natural: true
+			}
+		],
+		'sort-vars': 'off',
+		'space-before-blocks': ['error', 'always'],
+		'space-before-function-paren': [
+			'error',
+			{
+				anonymous: 'never',
+				named: 'never',
+				asyncArrow: 'always'
+			}
+		],
+		'space-in-parens': ['error', 'never'],
+		'space-infix-ops': ['error', { int32Hint: true }],
+		'space-unary-ops': ['error', { words: true, nonwords: false }],
 		'spaced-comment': [
 			'error',
 			'always',
@@ -300,6 +363,11 @@ module.exports = {
 			}
 		],
 		strict: ['error', 'never'],
+		'switch-colon-spacing': ['error', { after: true, before: false }],
+		'symbol-description': 'error',
+		'template-curly-spacing': ['error', 'never'],
+		'template-tag-spacing': ['error', 'never'],
+		'unicode-bom': ['error', 'never'],
 		'use-isnan': 'error',
 		'valid-jsdoc': [
 			'warn',
@@ -329,6 +397,8 @@ module.exports = {
 		'valid-typeof': 'error',
 		'vars-on-top': 'off',
 		'wrap-iife': ['error', 'inside'],
+		'wrap-regex': 'off',
+		'yield-star-spacing': ['error', 'before'],
 		yoda: 'error'
 	}
 };
