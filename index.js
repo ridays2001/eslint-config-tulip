@@ -33,7 +33,7 @@ module.exports = {
 		'comma-dangle': ['error', 'never'],
 		'comma-spacing': ['error', { before: false, after: true }],
 		'comma-style': ['error', 'last'],
-		complexity: ['warn', { max: 5 }],
+		complexity: 'off',
 		'computed-property-spacing': ['error', 'never'],
 		'consistent-return': ['warn', { treatUndefinedAsUnspecified: false }],
 		'consistent-this': ['error', 'self'],
@@ -287,17 +287,11 @@ module.exports = {
 		'prefer-destructuring': [
 			'error',
 			{
-				VariableDeclarator: {
-					array: false,
-					object: true
-				},
-				AssignmentExpression: {
-					array: true,
-					object: false
-				}
+				array: false,
+				object: true
 			},
 			{
-				enforceForRenamedProperties: true
+				enforceForRenamedProperties: false
 			}
 		],
 		'prefer-numeric-literals': 'off',
@@ -309,7 +303,6 @@ module.exports = {
 			'error',
 			'as-needed',
 			{
-				keywords: true,
 				unnecessary: true,
 				numbers: false
 			}
