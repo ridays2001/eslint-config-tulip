@@ -16,7 +16,7 @@ This configuration is made for Node.js apps.
 
 #### Installation
 Make sure you are on Node.js v12.18.3 or higher.
-Open command prompt (or terminal) in your project folder and use:\
+Open command prompt (or terminal) in your project folder and use:
 ```bash
 npm i -D eslint eslint-config-tulip
 ```
@@ -98,5 +98,9 @@ For more information, refer to the [Official ESLint Documentation](https://eslin
 License - MIT.
 
 &copy; [Riday](https://github.com/ridays2001 "My GitHub Profile ↗").
+
+<a href='https://discord.gg/muuyMD9'>
+	<img src='https://img.shields.io/badge/Discord-Riday%20%F0%9F%92%99%237468-ff69b4?logo=discord&logoColor=ff69b4&logoWidth=30&labelColor=0080ff&link=https://discord.gg/muuyMD9' alt='Discord - Riday 💙#7468'>
+</a>
 
 Thank you to all those who helped me. 💙
