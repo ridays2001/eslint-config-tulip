@@ -46,6 +46,7 @@ For eslint configuration files (`.eslintrc`, `.eslintrc.json`, `.eslintrc.js`, o
     "extends": "tulip"
 }
 ```
+You can integrate ESLint into your code editor. Follow the editors section on [this link ↗](https://eslint.org/docs/user-guide/integrations#editors) to set it up for your editor.
 
 ### Customizing
 Here are some examples on how to tweak the configuration according to your preferences.
