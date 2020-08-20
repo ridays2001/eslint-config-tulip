@@ -4,7 +4,7 @@
   "description": "Sharable ESLint configuration.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,17 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ridays2001/eslint-config-tulip/issues"
+    "url": "https://github.com/ridays2001/eslint-config-tulip/issues",
+    "email": "ridayshah2001@gmail.com"
   },
   "homepage": "https://github.com/ridays2001/eslint-config-tulip#readme",
   "devDependencies": {
     "eslint": "^7.7.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.0.0"
+  },
+  "engines": {
+    "node": ">=12.18.3"
   }
 }
