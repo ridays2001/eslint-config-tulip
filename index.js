@@ -4,7 +4,7 @@ module.exports = {
 	},
 	env: {
 		amd: true,
-		es6: true,
+		es2020: true,
 		node: true
 	},
 	rules: {
