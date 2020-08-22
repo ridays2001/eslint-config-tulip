@@ -312,7 +312,7 @@ module.exports = {
 			'single',
 			{
 				avoidEscape: true,
-				allowTemplateLiterals: true
+				allowTemplateLiterals: false
 			}
 		],
 		radix: 'error',
