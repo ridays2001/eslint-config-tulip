@@ -66,25 +66,7 @@ module.exports = {
 		],
 		'@typescript-eslint/member-ordering': 'off',
 		'@typescript-eslint/method-signature-style': ['error', 'property'],
-		'@typescript-eslint/naming-convention': [
-			'error',
-			{
-				selector: 'default',
-				format: ['camelCase'],
-				leadingUnderscore: 'allow',
-				trailingUnderscore: 'allow'
-			},
-			{
-				selector: 'variable',
-				format: ['camelCase', 'UPPER_CASE'],
-				leadingUnderscore: 'allow',
-				trailingUnderscore: 'allow'
-			},
-			{
-				selector: 'typeLike',
-				format: ['PascalCase']
-			}
-		],
+		'@typescript-eslint/naming-convention': 'off',
 		'@typescript-eslint/no-base-to-string': ['error', { ignoredTypeNames: ['RegExp'] }],
 		'@typescript-eslint/no-confusing-non-null-assertion': 'error',
 		'@typescript-eslint/no-confusing-void-expression': 'off',
