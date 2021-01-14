@@ -28,7 +28,14 @@ module.exports = {
 		'block-spacing': ['error', 'always'],
 		'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 		camelCase: 'off',
-		'capitalized-comments': ['error', 'always'],
+		'capitalized-comments': [
+			'error',
+			'always',
+			{
+				ignorePattern: 'prettier.*|cSpell.*',
+				ignoreConsecutiveComments: true
+			}
+		],
 		'class-methods-use-this': 'off',
 		'comma-dangle': ['error', 'never'],
 		'comma-spacing': ['error', { before: false, after: true }],
