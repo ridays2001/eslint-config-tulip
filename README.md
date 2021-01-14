@@ -32,7 +32,7 @@ This will install the configuration module and you can now use it in your projec
 If you are using TypeScript, then you also need to install the plugin and parser for TypeScript:
 
 ```bash
-npm i -D @typescript-eslint/plugin @typescript-eslint/parser
+npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 
 </details>
@@ -76,6 +76,9 @@ If you are using TypeScript, then you need to extend the typescript configuratio
 ```json
 {
     ...
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
     "extends": "tulip/typescript"
     ...
 }
