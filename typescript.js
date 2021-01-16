@@ -26,7 +26,66 @@ module.exports = {
 			}
 		],
 		'@typescript-eslint/ban-tslint-comment': 'error',
-		'@typescript-eslint/ban-types': 'error',
+		'@typescript-eslint/ban-types': [
+			'error',
+			{
+				types: {
+					String: {
+						message: 'Use string instead',
+						fixWith: 'string'
+					},
+					Boolean: {
+						message: 'Use boolean instead',
+						fixWith: 'boolean'
+					},
+					Number: {
+						message: 'Use number instead',
+						fixWith: 'number'
+					},
+					Symbol: {
+						message: 'Use symbol instead',
+						fixWith: 'symbol'
+					},
+					Function: {
+						message:
+							'The `Function` type accepts any function-like value.\n' +
+							'It provides no type safety when calling the function, ' +
+							'which can be a common source of bugs.\n' +
+							'It also accepts things like class declarations, ' +
+							'which will throw at runtime as they will not be called with `new`.\n' +
+							'If you are expecting the function to accept certain arguments, ' +
+							'you should explicitly define the function shape.'
+					},
+					Object: {
+						message:
+							'The `Object` type actually means "any non-nullish value", ' +
+							'so it is marginally better than `unknown`.\n' +
+							'- If you want a type meaning "any object", ' +
+							'you probably want `Record<string, unknown>` instead.\n' +
+							'- If you want a type meaning "any value", you probably want `unknown` instead.',
+						fixWith: 'Record<string, unknown>'
+					},
+					'{}': {
+						message:
+							'`{}` actually means "any non-nullish value".' +
+							'- If you want a type meaning "any object", ' +
+							'you probably want `Record<string, unknown>` instead.\n' +
+							'- If you want a type meaning "any value", you probably want `unknown` instead.\n' +
+							'- If you want a type meaning "empty object", ' +
+							'you probably want `Record<string, undefined>` or `Record<string, never>` instead.',
+						fixWith: 'Record<string, undefined>'
+					},
+					object: {
+						message:
+							'The `object` type is currently hard to use ' +
+							'([see this issue](https://github.com/microsoft/TypeScript/issues/21732)).\n' +
+							'Consider using `Record<string, unknown>` instead, ' +
+							'as it allows you to more easily inspect and use the keys.',
+						fixWith: 'Record<string, unknown>'
+					}
+				}
+			}
+		],
 		'@typescript-eslint/class-literal-property-style': 'off',
 		'@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
 		'@typescript-eslint/consistent-type-assertions': [
