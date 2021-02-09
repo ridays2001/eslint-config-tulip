@@ -1,10 +1,10 @@
 module.exports = {
 	parserOptions: {
-		ecmaVersion: 2020
+		ecmaVersion: 2021
 	},
 	env: {
 		amd: true,
-		es2020: true,
+		es2021: true,
 		node: true
 	},
 	rules: {
@@ -201,6 +201,7 @@ module.exports = {
 		'no-new-object': 'error',
 		'no-new-symbol': 'warn',
 		'no-new-wrappers': 'warn',
+		'no-nonoctal-decimal-escape': 'warn',
 		'no-obj-calls': 'warn',
 		'no-octal': 'error',
 		'no-octal-escape': 'error',
@@ -242,6 +243,7 @@ module.exports = {
 		'no-unreachable-loop': 'warn',
 		'no-unsafe-finally': 'warn',
 		'no-unsafe-negation': 'error',
+		'no-unsafe-optional-chaining': 'error',
 		'no-unused-expressions': 'off',
 		'no-unused-labels': 'error',
 		'no-unused-vars': [
