@@ -27,7 +27,7 @@ module.exports = {
 		'block-scoped-var': 'error',
 		'block-spacing': ['error', 'always'],
 		'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-		camelCase: 'off',
+		camelcase: 'off',
 		'capitalized-comments': [
 			'error',
 			'always',
@@ -371,31 +371,6 @@ module.exports = {
 		'template-tag-spacing': ['error', 'never'],
 		'unicode-bom': ['error', 'never'],
 		'use-isnan': 'error',
-		'valid-jsdoc': [
-			'warn',
-			{
-				prefer: {
-					arg: 'param',
-					argument: 'param',
-					desc: 'description',
-					func: 'function',
-					method: 'function',
-					return: 'returns'
-				},
-				preferType: {
-					Boolean: 'boolean',
-					date: 'Date',
-					error: 'Error',
-					function: 'Function',
-					Number: 'number',
-					object: 'Object',
-					String: 'string',
-					Symbol: 'symbol'
-				},
-				requireReturn: false,
-				requireReturnDescription: false
-			}
-		],
 		'valid-typeof': 'error',
 		'vars-on-top': 'off',
 		'wrap-iife': ['error', 'inside'],
