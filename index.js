@@ -14,9 +14,9 @@ module.exports = {
 			'error',
 			'never',
 			{
-				singleValue: false,
+				arraysInArrays: false,
 				objectsInArrays: false,
-				arraysInArrays: false
+				singleValue: false
 			}
 		],
 		'array-callback-return': 'error',
@@ -74,22 +74,22 @@ module.exports = {
 		'key-spacing': [
 			'error',
 			{
-				beforeColon: false,
 				afterColon: true,
+				beforeColon: false,
 				mode: 'strict'
 			}
 		],
 		'keyword-spacing': [
 			'error',
 			{
-				before: true,
 				after: true,
+				before: true,
 				overrides: {
-					if: { after: true },
-					for: { after: true },
-					while: { after: true },
 					catch: { after: true },
-					switch: { after: true }
+					for: { after: true },
+					if: { after: true },
+					switch: { after: true },
+					while: { after: true }
 				}
 			}
 		],
@@ -108,8 +108,8 @@ module.exports = {
 			'error',
 			{
 				code: 120,
-				ignoreUrls: true,
 				ignoreRegExpLiterals: true,
+				ignoreUrls: true,
 				tabWidth: 4
 			}
 		],
@@ -173,9 +173,9 @@ module.exports = {
 		'no-irregular-whitespace': [
 			'error',
 			{
-				skipStrings: true,
 				skipComments: true,
 				skipRegExps: true,
+				skipStrings: true,
 				skipTemplates: true
 			}
 		],
@@ -347,8 +347,8 @@ module.exports = {
 			'error',
 			{
 				anonymous: 'never',
-				named: 'never',
-				asyncArrow: 'always'
+				asyncArrow: 'always',
+				named: 'never'
 			}
 		],
 		'space-in-parens': ['error', 'never'],
