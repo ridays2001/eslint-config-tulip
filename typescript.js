@@ -19,10 +19,10 @@ module.exports = {
 		'@typescript-eslint/ban-ts-comment': [
 			'error',
 			{
+				'ts-check': false,
 				'ts-expect-error': 'allow-with-description',
 				'ts-ignore': true,
-				'ts-nocheck': true,
-				'ts-check': false
+				'ts-nocheck': true
 			}
 		],
 		'@typescript-eslint/ban-tslint-comment': 'error',
@@ -30,21 +30,19 @@ module.exports = {
 			'error',
 			{
 				types: {
-					String: {
-						message: 'Use string instead',
-						fixWith: 'string'
+					'{}': {
+						message:
+							'`{}` actually means "any non-nullish value".' +
+							'- If you want a type meaning "any object", ' +
+							'you probably want `Record<string, unknown>` instead.\n' +
+							'- If you want a type meaning "any value", you probably want `unknown` instead.\n' +
+							'- If you want a type meaning "empty object", ' +
+							'you probably want `Record<string, undefined>` or `Record<string, never>` instead.',
+						fixWith: 'Record<string, undefined>'
 					},
 					Boolean: {
 						message: 'Use boolean instead',
 						fixWith: 'boolean'
-					},
-					Number: {
-						message: 'Use number instead',
-						fixWith: 'number'
-					},
-					Symbol: {
-						message: 'Use symbol instead',
-						fixWith: 'symbol'
 					},
 					Function: {
 						message:
@@ -56,6 +54,18 @@ module.exports = {
 							'If you are expecting the function to accept certain arguments, ' +
 							'you should explicitly define the function shape.'
 					},
+					Number: {
+						message: 'Use number instead',
+						fixWith: 'number'
+					},
+					object: {
+						message:
+							'The `object` type is currently hard to use ' +
+							'([see this issue](https://github.com/microsoft/TypeScript/issues/21732)).\n' +
+							'Consider using `Record<string, unknown>` instead, ' +
+							'as it allows you to more easily inspect and use the keys.',
+						fixWith: 'Record<string, unknown>'
+					},
 					Object: {
 						message:
 							'The `Object` type actually means "any non-nullish value", ' +
@@ -65,23 +75,13 @@ module.exports = {
 							'- If you want a type meaning "any value", you probably want `unknown` instead.',
 						fixWith: 'Record<string, unknown>'
 					},
-					'{}': {
-						message:
-							'`{}` actually means "any non-nullish value".' +
-							'- If you want a type meaning "any object", ' +
-							'you probably want `Record<string, unknown>` instead.\n' +
-							'- If you want a type meaning "any value", you probably want `unknown` instead.\n' +
-							'- If you want a type meaning "empty object", ' +
-							'you probably want `Record<string, undefined>` or `Record<string, never>` instead.',
-						fixWith: 'Record<string, undefined>'
+					String: {
+						message: 'Use string instead',
+						fixWith: 'string'
 					},
-					object: {
-						message:
-							'The `object` type is currently hard to use ' +
-							'([see this issue](https://github.com/microsoft/TypeScript/issues/21732)).\n' +
-							'Consider using `Record<string, unknown>` instead, ' +
-							'as it allows you to more easily inspect and use the keys.',
-						fixWith: 'Record<string, unknown>'
+					Symbol: {
+						message: 'Use symbol instead',
+						fixWith: 'symbol'
 					}
 				}
 			}
