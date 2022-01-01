@@ -96,6 +96,7 @@ module.exports = {
 			}
 		],
 		'@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+		'@typescript-eslint/consistent-type-exports': ['error', { fixMixedExportsWithInlineTypeSpecifier: false }],
 		'@typescript-eslint/consistent-type-imports': [
 			'error',
 			{
@@ -108,6 +109,15 @@ module.exports = {
 			'error',
 			{
 				accessibility: 'explicit'
+			}
+		],
+		'@typescript-eslint/explicit-module-boundary-types': [
+			'error',
+			{
+				allowArgumentsExplicitlyTypedAsAny: true,
+				allowDirectConstAssertionInArrowFunctions: true,
+				allowHigherOrderFunctions: false,
+				allowTypedFunctionExpressions: true
 			}
 		],
 		'@typescript-eslint/member-delimiter-style': [
@@ -134,11 +144,12 @@ module.exports = {
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-extra-non-null-assertion': 'error',
 		'@typescript-eslint/no-extraneous-class': 'off',
-		'@typescript-eslint/no-floating-promises': 'error',
+		'@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true, ignoreIIFE: false }],
 		'@typescript-eslint/no-for-in-array': 'error',
 		'@typescript-eslint/no-implicit-any-catch': 'off',
-		'@typescript-eslint/no-inferrable-types': 'warn',
+		'@typescript-eslint/no-inferrable-types': ['error', { ignoreParameters: false, ignoreProperties: false }],
 		'@typescript-eslint/no-invalid-void-type': 'warn',
+		'@typescript-eslint/no-meaningless-void-operator': 'off',
 		'@typescript-eslint/no-misused-new': 'error',
 		'@typescript-eslint/no-misused-promises': [
 			'error',
@@ -147,7 +158,8 @@ module.exports = {
 				checkConditionals: true
 			}
 		],
-		'@typescript-eslint/no-namespace': 'warn',
+		'@typescript-eslint/no-namespace': 'error',
+		'@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
 		'@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
 		'@typescript-eslint/no-non-null-assertion': 'error',
 		'@typescript-eslint/no-parameter-properties': 'off',
@@ -159,6 +171,7 @@ module.exports = {
 				allowedNames: []
 			}
 		],
+		'@typescript-eslint/no-type-alias': 'off',
 		'@typescript-eslint/no-unnecessary-boolean-literal-compare': [
 			'error',
 			{
@@ -170,58 +183,84 @@ module.exports = {
 		'@typescript-eslint/no-unnecessary-qualifier': 'warn',
 		'@typescript-eslint/no-unnecessary-type-arguments': 'off',
 		'@typescript-eslint/no-unnecessary-type-assertion': 'error',
-		'@typescript-eslint/no-unnecessary-type-constraint': 'warn',
-		'@typescript-eslint/no-unsafe-assignment': 'off',
-		'@typescript-eslint/no-unsafe-call': 'off',
+		'@typescript-eslint/no-unnecessary-type-constraint': 'error',
+		'@typescript-eslint/no-unsafe-argument': 'warn',
+		'@typescript-eslint/no-unsafe-assignment': 'warn',
+		'@typescript-eslint/no-unsafe-call': 'warn',
 		'@typescript-eslint/no-unsafe-member-access': 'warn',
 		'@typescript-eslint/no-unsafe-return': 'warn',
 		'@typescript-eslint/no-var-requires': 'error',
 		'@typescript-eslint/non-nullable-type-assertion-style': 'off',
+		'@typescript-eslint/prefer-as-const': 'warn',
 		'@typescript-eslint/prefer-enum-initializers': 'off',
 		'@typescript-eslint/prefer-for-of': 'error',
 		'@typescript-eslint/prefer-function-type': 'off',
 		'@typescript-eslint/prefer-includes': 'error',
-		'@typescript-eslint/prefer-literal-enum-member': 'off',
-		'@typescript-eslint/prefer-namespace-keyword': 'off',
+		'@typescript-eslint/prefer-literal-enum-member': 'warn',
+		'@typescript-eslint/prefer-namespace-keyword': 'error',
 		'@typescript-eslint/prefer-nullish-coalescing': 'warn',
 		'@typescript-eslint/prefer-optional-chain': 'warn',
 		'@typescript-eslint/prefer-readonly': 'warn',
 		'@typescript-eslint/prefer-readonly-parameter-types': 'off',
 		'@typescript-eslint/prefer-reduce-type-parameter': 'error',
 		'@typescript-eslint/prefer-regexp-exec': 'warn',
+		'@typescript-eslint/prefer-return-this-type': 'warn',
 		'@typescript-eslint/prefer-string-starts-ends-with': 'error',
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
 		'@typescript-eslint/promise-function-async': 'off',
 		'@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
-		'@typescript-eslint/restrict-plus-operands': 'error',
-		'@typescript-eslint/restrict-template-expressions': 'warn',
+		'@typescript-eslint/restrict-plus-operands': ['error', { checkCompoundAssignments: true, allowAny: false }],
+		'@typescript-eslint/restrict-template-expressions': [
+			'warn',
+			{
+				allowAny: false,
+				allowBoolean: false,
+				allowNullish: false,
+				allowNumber: true,
+				allowRegExp: false
+			}
+		],
+		'@typescript-eslint/sort-type-union-intersection-members': [
+			'warn',
+			{ checkUnions: true, checkIntersections: true }
+		],
 		'@typescript-eslint/strict-boolean-expressions': 'off',
 		'@typescript-eslint/switch-exhaustiveness-check': 'warn',
 		'@typescript-eslint/triple-slash-reference': 'off',
-		'@typescript-eslint/type-annotation-spacing': 'error',
+		'@typescript-eslint/type-annotation-spacing': [
+			'error',
+			{
+				after: false,
+				before: false,
+				overrides: {
+					arrow: { before: true, after: true }
+				}
+			}
+		],
 		'@typescript-eslint/typedef': 'off',
-		'@typescript-eslint/unbound-method': 'error',
+		'@typescript-eslint/unbound-method': ['error', { ignoreStatic: true }],
 		'@typescript-eslint/unified-signatures': 'error',
 
 		/* eslint-disable sort-keys */
+		// Replacing base javascript rules with typescript specific rules.
 
-		// Turn off the base rule to avoid problems.
 		'brace-style': 'off',
 		'@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
-		// Turn off base rule to avoid problems.
 		'comma-dangle': 'off',
 		'@typescript-eslint/comma-dangle': ['error', 'never'],
 
-		// Turn off base rule to avoid problems.
 		'comma-spacing': 'off',
 		'@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
 
-		// Turn off base rule to avoid problems.
+		'default-param-last': 'off',
+		'@typescript-eslint/default-param-last': 'warn',
+
 		'dot-notation': 'off',
 		'@typescript-eslint/dot-notation': [
 			'error',
 			{
+				allowIndexSignaturePropertyAccess: false,
 				allowKeywords: true,
 				allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)',
 				allowPrivateClassPropertyAccess: false,
@@ -229,20 +268,16 @@ module.exports = {
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'func-call-spacing': 'off',
 		'@typescript-eslint/func-call-spacing': ['error', 'never'],
 
-		// Turn off base rule to avoid problems.
+		// Note: This rule is buggy when used in TypeScript.
 		indent: 'off',
 		'@typescript-eslint/indent': ['error', 'tab'],
-		// Note: This rule is buggy when used in TypeScript.
 
-		// Turn off base rule to avoid problems.
 		'init-declarations': 'off',
 		'@typescript-eslint/init-declarations': ['warn', 'always'],
 
-		// Turn off base rule to avoid problems.
 		'keyword-spacing': 'off',
 		'@typescript-eslint/keyword-spacing': [
 			'error',
@@ -259,7 +294,6 @@ module.exports = {
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'lines-between-class-members': 'off',
 		'@typescript-eslint/lines-between-class-members': [
 			'error',
@@ -270,35 +304,56 @@ module.exports = {
 			}
 		],
 
-		// Turn off base rule to avoid problems.
+		'no-array-constructor': 'off',
+		'@typescript-eslint/no-array-constructor': 'warn',
+
 		'no-dupe-class-members': 'off',
 		'@typescript-eslint/no-dupe-class-members': 'error',
 
-		// Turn off base rule to avoid problems.
 		'no-duplicate-imports': 'off',
 		'@typescript-eslint/no-duplicate-imports': ['error', { includeExports: false }],
 
-		// Turn off base rule to avoid problems.
+		'no-empty-function': 'off',
+		'@typescript-eslint/no-empty-function': 'off',
+
 		'no-extra-parens': 'off',
 		'@typescript-eslint/no-extra-parens': ['warn', 'all', { nestedBinaryExpressions: false }],
 
-		// Turn off base rule to avoid problems.
 		'no-extra-semi': 'off',
 		'@typescript-eslint/no-extra-semi': 'error',
 
-		// Turn off base rule to avoid problems.
 		'no-implied-eval': 'off',
 		'@typescript-eslint/no-implied-eval': 'error',
 
-		// Turn off base rule to avoid problems.
+		'no-invalid-this': 'off',
+		'@typescript-eslint/no-invalid-this': 'off',
+
+		'no-loop-func': 'off',
+		'@typescript-eslint/no-loop-func': 'off',
+
+		'no-loss-of-precision': 'off',
+		'@typescript-eslint/no-loss-of-precision': 'warn',
+
+		'no-magic-numbers': 'off',
+		'@typescript-eslint/no-magic-numbers': 'off',
+
 		'no-redeclare': 'off',
 		'@typescript-eslint/no-redeclare': 'error',
 
-		// Turn off base rule to avoid problems.
+		'no-restricted-imports': 'off',
+		'@typescript-eslint/no-restricted-imports': 'off',
+
+		// The base 'no-return-await' rule has been renamed to 'return-await' in typescript.
+
+		'no-shadow': 'off',
+		'@typescript-eslint/no-shadow': 'warn',
+
 		'no-throw-literal': 'off',
 		'@typescript-eslint/no-throw-literal': 'error',
 
-		// Turn off base rule to avoid problems.
+		'no-unused-expressions': 'off',
+		'@typescript-eslint/no-unused-expressions': 'off',
+
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': [
 			'warn',
@@ -308,21 +363,26 @@ module.exports = {
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'no-use-before-define': 'off',
 		'@typescript-eslint/no-use-before-define': [
 			'error',
 			{
+				enums: true,
 				functions: false,
+				ignoreTypeReferences: true,
 				typedefs: false
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'no-useless-constructor': 'off',
 		'@typescript-eslint/no-useless-constructor': 'error',
 
-		// Turn off base rule to avoid problems.
+		'object-curly-spacing': 'off',
+		'@typescript-eslint/object-curly-spacing': ['error', 'always'],
+
+		'padding-line-between-statements': 'off',
+		'@typescript-eslint/padding-line-between-statements': 'off',
+
 		quotes: 'off',
 		'@typescript-eslint/quotes': [
 			'error',
@@ -333,26 +393,25 @@ module.exports = {
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'require-await': 'off',
-		'@typescript-eslint/require-await': 'warn',
+		'@typescript-eslint/require-await': 'error',
 
-		// Turn off base rule to avoid problems.
+		'no-return-await': 'off',
+		'@typescript-eslint/return-await': 'warn',
+
 		semi: 'off',
 		'@typescript-eslint/semi': ['error'],
 
-		// Turn off base rule to avoid problems.
 		'space-before-function-paren': 'off',
 		'@typescript-eslint/space-before-function-paren': [
 			'error',
 			{
 				anonymous: 'never',
-				named: 'never',
-				asyncArrow: 'always'
+				asyncArrow: 'always',
+				named: 'never'
 			}
 		],
 
-		// Turn off base rule to avoid problems.
 		'space-infix-ops': 'off',
 		'@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }]
 	}
