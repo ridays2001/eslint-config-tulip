@@ -353,6 +353,7 @@ module.exports = {
 		'prefer-exponentiation-operator': 'off',
 		'prefer-named-capture-group': 'off',
 		'prefer-numeric-literals': 'off',
+		'prefer-object-has-own': 'error',
 		'prefer-object-spread': 'off',
 		'prefer-promise-reject-errors': 'error',
 		'prefer-regex-literals': 'error',
