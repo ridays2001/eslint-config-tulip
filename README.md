@@ -17,7 +17,7 @@ This configuration is made for Node.js apps.
 
 #### Installation
 
-Make sure you are on Node.js v12.18.3 or higher.
+Make sure you are using Node.js v16.13.1 or higher.
 Open command prompt (or terminal) in your project folder and use:
 
 ```bash
@@ -40,10 +40,10 @@ npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
 ### Usage
 
-Once you have installed the configuration module, you need to tell eslint to look for it.
-You can do this by extending the module in your configuration settings.
-ESLint configuration can be done either in your `package.json` file or in a separate eslint configuration file.
-For more instructions on eslint configuration, please refer to
+Once you have installed the configuration module, you need to tell eslint to use it.
+You can do this by extending it in your config.
+ESLint can be configured either in your `package.json` file or in a separate eslint config file.
+For more instructions on configuring eslint, please refer to
 [ESLint getting started guide ↗](https://eslint.org/docs/user-guide/getting-started).
 
 For `package.json`:
@@ -66,7 +66,8 @@ For eslint configuration files (`.eslintrc`, `.eslintrc.json`, `.eslintrc.js`, o
 }
 ```
 
-You can integrate ESLint into your code editor. Follow the editors section on [this link ↗](https://eslint.org/docs/user-guide/integrations#editors) to set it up for your editor.
+You can also integrate eslint into your code editor.
+Follow the instructions in the [editors section↗](https://eslint.org/docs/user-guide/integrations#editors) to set it up for your editor.
 
 <details>
     <summary>Adding TypeScript</summary>
@@ -87,51 +88,48 @@ If you are using TypeScript, then you need to extend the typescript configuratio
 </details>
 <br>
 
+<details>
+	<summary>Using Prettier</summary>
+
+If you wish to use prettier along with eslint, then you need to use the prettier module.
+This will turn off certain eslint rules that interfere with prettier.
+
+```json
+{
+	"extends": "tulip/prettier"
+}
+```
+
+Using Typescript? Don't worry, I've got you covered!
+
+```json
+{
+	"extends": "tulip/prettier-ts"
+}
+```
+
+</details>
+<br>
+
 ### Customizing
 
-Here are some examples on how to tweak the configuration according to your preferences.
-You may want to change some rules depending upon your development environment:
+This ESLint configuration comes with the latest rules enabled according to my style guide.
+But, you may want to tweak it depending upon your preferences. Here's an example:
 
 ```json
 {
 	"extends": "tulip",
 	"rules": {
-		"max-len": [
-			"error",
-			{
-				"code": 80,
-				"ignoreUrls": true,
-				"ignoreRegExpLiterals": true,
-				"tabWidth": 4
-			}
-		]
+		"sort-keys": "off"
 	}
 }
 ```
 
-The `max-len` rule specifies the max number of characters per line.
-Since most people nowadays have wide screens, so the 120 character limit is perfect.
-But, the people on smaller screens may not be able to fit 120 characters.
-So, you can change the limit to 80 here.
-The common ones are 80 or 120.
+The `sort-keys` rule requires you to sort your keys alphabetically.
+This is helpful when you have too many keys in the object, but you may want to turn this rule off if you are following some other order.
 
-<br/>
-
-You may also want to turn off some rules depending upon your preferences:
-
-```json
-{
-	"extends": "tulip",
-	"rules": {
-		"no-unused-vars": "off"
-	}
-}
-```
-
-The `no-unused-vars` specifies that you should not have any unused variables.
-If you have too many unused variables in your code and you know that they're important, you might want to turn this rule off.
-
-For more information, refer to the [Official ESLint Documentation](https://eslint.org/docs/user-guide/getting-started#configuration-1) or [a more detailed one here↗](https://eslint.org/docs/user-guide/configuring)
+For more information, refer to the [Official ESLint Documentation↗](https://eslint.org/docs/user-guide/getting-started#configuration-1) or [a more detailed one here↗](https://eslint.org/docs/user-guide/configuring).\
+Here's the [list of all Available ESLint rules↗](https://eslint.org/docs/rules/).
 
 ### Contribute
 
@@ -144,9 +142,9 @@ For more information, refer to the [Official ESLint Documentation](https://eslin
 
 License - MIT.
 
-&copy; [Riday](https://github.com/ridays2001 'My GitHub Profile ↗').
+&copy; [Riday ♡](https://github.com/ridays2001 'My GitHub Profile ↗').
 
-<a href='https://discord.gg/muuyMD9'>
+<a href='https://riday.me/discord'>
 	<img src='https://img.shields.io/badge/Discord-Riday%20%F0%9F%92%99%237468-ff69b4?logo=discord&logoColor=ff69b4&logoWidth=30&labelColor=0080ff&link=https://discord.gg/muuyMD9' alt='Discord - Riday 💙#7468'>
 </a>
 
